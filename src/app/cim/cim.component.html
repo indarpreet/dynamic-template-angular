@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+<div #scrollTop class="content content--alt">
+  <app-message  *ngIf="toggle" [message]="message"></app-message>
+    <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-12 col-xl-12 col-2xl-12">
+        <app-steps></app-steps>
+        <!-- <app-smart-search></app-smart-search> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" style="z-index: 10005; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; cursor: wait; position: fixed; background-color: rgba(0, 0, 0, 0.6);">
+  <div id="preloader" style="position: fixed; top: 40%; left: 40%; z-index: 10005; display: block;">
+      <img src="./assets/preloader.gif">
+  </div>
+</div>

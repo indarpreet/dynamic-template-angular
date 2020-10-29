@@ -1,0 +1,19 @@
+
+    <label (click)="d.toggle()" [ngClass]="{'active' : form.data[label]}"
+      class="btn btn--ghost position-relative datepickerBtn">
+       <span class="btn-label">
+        <span>{{label}}</span>
+        <span class="icon-calendar"></span>
+      </span>
+      <span class="custom-datepicker" (click)="$event.stopPropagation()">
+        <input id="datePicker" [ngClass]="{'datepicker-input' : form.data[label]}" name="dp"
+          [(ngModel)]="date" (ngModelChange)="onChange($event)" type="text" ngbDatepicker #d="ngbDatepicker" readonly></span>
+    </label>
+    <!-- <button (click)="d1.toggle()" [ngClass]="{'active' : form.data[form.formItemLabel[1]]}"
+      class="btn btn--ghost position-relative datepickerBtn">Targeted
+      <span class="icon-calendar"></span>
+      <span class="custom-datepicker" (click)="$event.stopPropagation()">
+        <input id="datePicker" [ngClass]="{'datepicker-input' : form.data[form.formItemLabel[1]]}" name="dp"
+          [(ngModel)]="form.data[form.formItemLabel[1]]" ngbDatepicker #d1="ngbDatepicker" readonly></span>
+    </button> -->
+  

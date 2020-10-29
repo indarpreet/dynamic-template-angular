@@ -1,0 +1,9 @@
+{
+  "watch": ["**/*.ts", "**/*.css", "**/*.html"],
+  "ext": "ts,css,html",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "ts-node server.ts",
+  "args": [
+    "--inspect"
+  ]
+}

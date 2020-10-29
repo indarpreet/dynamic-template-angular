@@ -1,0 +1,58 @@
+---
+# Source: templates/dev.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: 'cim-ui-service'
+  namespace: 'cim-dev'
+  labels:
+    softwareId: '26845318ee467e1bb8798c72e0955d629de102eb'
+    softwareName: 'cim-ui'
+spec:
+  ports:
+    - name: "web"
+      protocol: "TCP"
+      port: 8080
+  selector:
+      app: 'cim-ui'
+  type: ClusterIP
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: 'cim-ui'
+  namespace: 'cim-dev'
+  labels:
+    softwareId: '26845318ee467e1bb8798c72e0955d629de102eb'
+    softwareName: 'cim-ui'
+spec:
+  selector:
+    matchLabels:
+      app: 'cim-ui'
+  replicas: 1
+  template:
+    metadata:
+      namespace: 'cim-dev'
+      labels:
+        app: 'cim-ui'
+        environment: 'dev'
+        softwareId: '26845318ee467e1bb8798c72e0955d629de102eb'
+        softwareName: 'cim-ui'
+    spec:
+      containers:
+      - image: 'containers.cisco.com/it_eds_others_sre-dev/cim-ui'
+        imagePullPolicy: IfNotPresent
+        name: 'cim-ui'
+        ports:
+        - containerPort: 8080
+        env:
+          -
+            name: "NODE_ENV"
+            value: "development"
+          -
+            name: "PORT"
+            value: "8080"
+      imagePullSecrets:
+      - name: it-eds-others-sre-dev-cdconsole-bot-pull-secret

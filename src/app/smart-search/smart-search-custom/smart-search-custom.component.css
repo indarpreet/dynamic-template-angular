@@ -1,0 +1,23 @@
+.popup-list{
+    justify-content: space-between;
+    
+}
+
+.ck-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ck-section{
+    display: flex;
+    align-items: center;
+}
+
+.ck-detail-section{
+    margin-left: 20px;
+}
+
+.icon-popup-dialogue{
+    cursor: pointer;
+}

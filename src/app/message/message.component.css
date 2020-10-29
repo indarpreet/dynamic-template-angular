@@ -1,0 +1,32 @@
+.message-panel{
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 0 none;
+    border-radius: var(--cui-panel-border-radius);
+    height: auto;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: var(--cui-background-color);
+    color: var(--cui-font-color);
+}
+
+div[class^="alert--"]{
+   font-size: small;
+   padding: 0 8px;
+}
+
+.alert--success {
+    background: #6cc04a;
+}
+.alert--warning {
+    background: #e0db48;
+}
+
+.alert--info {
+    background: #7c7b7d;
+}
+
+
+.alert--danger {
+    background: #cf2030;
+}

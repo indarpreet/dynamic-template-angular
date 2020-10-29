@@ -1,0 +1,15 @@
+<div class="panel panel--tertiary">
+    <div class="flex justify-content-between">
+        <div class="header-tab">
+            <span class="icon-house"></span>
+            <span>/</span>Questionnaire/<span *ngIf="questionnaireAccount">{{questionnaireAccount.customerName}}</span>
+        </div>
+
+       
+
+        <div>
+            <button (click)="saveProgressAndSubmit()" class="btn btn--secondary">Save Progress</button>
+            <button (click)="saveProgressAndSubmit()" class="btn btn--primary">Submit</button>
+        </div>
+    </div>
+</div>

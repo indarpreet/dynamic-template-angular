@@ -1,0 +1,23 @@
+body.cui .common-search {
+    width: 100%;
+}
+
+.common-search .form-group {
+    padding: 0 20px;
+}
+
+.common-search .flex .form-group+.form-group {
+    margin-top: 0;
+}
+
+.common-search .flex .form-group .form-group__text input {
+    background: white;
+}
+
+
+/* .icon-search {
+    position: absolute;
+    right: 3px;
+    top: 32px;
+    background-color: transparent;
+} */

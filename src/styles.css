@@ -1,0 +1,740 @@
+body.cui{
+    
+}
+
+ul{
+    list-style: none;
+}
+
+body.cui[data-theme="dark"] {
+    /* Font */
+    --cui-font-weight: normal;
+    --cui-font-color: var(--cui-color-white);
+    --cui-color-dark: var(--cui-color-gray-900);
+    --cui-color-light: var(--cui-color-white);
+    /* Backdrops and Backgrounds */
+    --cui-background-alt: var(--cui-color-gray-700);
+    --cui-background-color: var(--cui-color-gray-900);
+    --cui-background-active: var(--cui-color-gray-700);
+    --cui-background-inactive: var(--cui-color-gray-800);
+    --cui-background-hover: var(--cui-color-gray-700);
+    --cui-background-selected: var(--cui-color-gray-600);
+    --cui-theme-secondary: var(--cui-color-white);
+    --cui-theme-secondary-darker: var(--cui-color-gray-100);
+    --cui-theme-secondary-lighter: var(--cui-color-white);
+    --cui-theme-secondary-color: var(--cui-color-dark);
+    --cui-theme-secondary-rgb: 30, 68, 113;
+    --cui-theme-primary-link-decoration: none;
+    /* Borders */
+    --cui-border-color: var(--cui-color-gray-600);
+    --cui-border-radius: 0px;
+    /* Shadows */
+    --cui-shadow-outset-color: var(--cui-color-black);
+    /* Font and Link Color */
+    --cui-font-color: var(--cui-color-white);
+    --cui-active-color: var(--cui-color-white);
+    --cui-inactive-color: var(--cui-color-gray-500);
+    --cui-link-color: var(--cui-accent-color);
+    --cui-link-color-active: var(--cui-accent-color);
+}
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* Chrome, Safari, Edge, Opera */
+body.cui footer, body.cui .footer{
+    margin-top: unset;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Input CSS */
+
+input[type="range"] {
+    height: 2px;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    background: #B4B9BB;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 0.5px solid #00C0F5;
+    cursor: pointer;
+    background: white;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]:hover {
+    background: #00C0F5;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.display-none {
+    display: none;
+    appearance: none;
+}
+
+.pos-rel{
+    position: relative;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+/**
+Datepicker Global CSS --START
+**/
+
+body.cui .btn.ngb-dp-arrow-btn {
+    appearance: none;
+    padding: 0 .25rem;
+    margin: 0 .5rem;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.custom-datepicker .dropdown-menu {
+    transform: translate(0px, 37px)!important;
+    bottom: 68px;
+    right: 0!important;
+    top: unset!important;
+    left: unset!important;
+    background-color: #fff;
+}
+
+.ngb-dp-week-number,
+.ngb-dp-weekday {
+    line-height: 3rem!important;
+}
+
+.custom-datepicker .ngb-dp-day,
+.custom-datepicker .ngb-dp-week-number,
+.custom-datepicker .ngb-dp-weekday {
+    width: 3rem;
+    height: 3rem;
+}
+
+.ngb-dp-weekday {
+    color: #17a2b8!important;
+}
+
+.ngb-datepicker-navigation-select>.custom-select {
+    flex: 1 1 auto;
+    padding: 0 .5rem;
+    font-size: .875rem;
+    height: 1.85rem;
+}
+
+ngb-datepicker-navigation-select>.custom-select {
+    flex: 1 1 auto!important;
+    padding: 0 .5rem!important;
+    font-size: 1.2rem!important;
+    height: 1.85rem!important;
+}
+
+/* body.cui .form-group .form-group__text ngb-datepicker-navigation-select select{
+    color : var(--cui-background-color);
+} */
+
+body[data-theme="dark"].cui .form-group .form-group__text ngb-datepicker-navigation-select select{
+   color : #212529;
+}
+
+.btn-light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+[ngbDatepickerDayView] {
+    width: 3rem!important;
+    height: 3rem!important;
+    line-height: 3rem!important;
+}
+
+body.cui .btn.datepickerBtn{
+    display: flex;
+    flex-direction: column;
+}
+#datePicker{
+    transition : none; 
+}
+.custom-datepicker #datePicker {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    width: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-datepicker #datePicker.datepicker-input {
+    height: 14px;
+    /* min-height: 1px; */
+    padding: 0;
+    width: 60px;
+    border: none;
+    font-size: x-small;
+    line-height: 14px;
+    box-shadow: none;
+}
+
+body.cui .form-group .form-group__text label.datepickerBtn {
+    height: 30px;
+    font-size: 12px;
+}
+
+body.cui .form-group .form-group__text label.active{
+    line-height: 15px;
+}
+
+.btn-group-2 app-datepicker {
+    width: 50%;
+}
+
+.btn-group-3 app-datepicker label , .btn-group-2 app-datepicker label {
+    width: 100%;
+}
+
+/**
+Datepicker Global CSS --END
+**/
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+/**
+Button Ghost Global  START...
+**/
+
+body[data-theme="light"].cui .btn.btn--ghost {
+    border-color: #DEE2E6;
+}
+/* 
+body.cui .btn.btn--ghost:hover {
+    border-color: #DEE2E6;
+    background-color: #F2F2F2;
+    color: inherit;
+} */
+
+body[data-theme="light"].cui .btn.btn--ghost.active,
+body[data-theme="light"].cui .btn.btn--ghost.selected,
+body[data-theme="light"].cui .btn.btn--ghost:active {
+    border-color: #DEE2E6;
+    background-color: #EEFBFD;
+    color: inherit;
+}
+
+
+/**
+Button Ghost Global CSS END...
+**/
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+/**
+Button Group width and display CSS
+**/
+
+.btn-group-2 label {
+    width: 50%;
+}
+
+
+
+.btn-group-3 label  , .btn-group-3 app-datepicker {
+    width: 33.33333%;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+
+
+.btn-group-3 label .form-item__label{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-group-3 label .tooltip{
+    display: none;
+}
+
+
+.btn-group-3 label .form-item__label:hover + .tooltip{
+    display: block;
+    position: absolute;
+    bottom: 120%;
+    right: 3%;
+    width : 90%;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: none;
+    font-size: 1.2rem!important;
+    background: rgba(88,88,91,.99);
+    border-radius: 4px;
+    color: #fff;
+    padding: .5em 1em;
+    line-height: 1.8rem;
+   
+    /* white-space: nowrap; */
+}
+
+.btn-group-3 label:hover .tooltip::after{
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(88,88,91,.99) transparent transparent transparent;
+    top: 100%;
+    right:50%;
+
+}
+/* body.cui .form-group .form-group__text .btn-group-3 label{
+    font-size: 12px;
+} */
+
+.btn-group-4 label {
+    width: 25%;
+}
+
+.btn-group-3 label input[type="checkbox"] {
+    display: none;
+}
+
+
+/**
+Button Group CSS
+**/
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+/* Button approved and denied colors START... */
+
+body.cui .form-group .form-group__text label.approved {
+    background: #4AA564;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #4AA564;
+}
+
+body.cui .form-group .form-group__text label.denied {
+    background: #CD2026;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #CD2026;
+}
+
+body.cui .form-group .form-group__text label.warning {
+    background: #F9C642;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #F9C642;
+}
+
+
+/* Button approved and denied colors END... */
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+body.cui .steps .step .step__icon {
+    background-color: #d9d8d8;
+}
+
+body.cui .steps {
+    max-width: 80%;
+}
+
+
+/* -------------------------------steps icon css start----------------------------------------------------------------------- */
+
+.icon-account-information {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -10px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-account-information.active {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -10px -104px;
+}
+
+.icon-customer-intimacy {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -85px -42px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-customer-intimacy.active {
+    background-position: -85px -104px;
+}
+
+.icon-reinvent-network {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -170px -42px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-reinvent-network.active {
+    background-position: -174px -104px;
+}
+
+.icon-embrace-multicloud {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -256px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-embrace-multicloud.active {
+    background-position: -262px -107px;
+}
+
+.icon-unlock-power {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -342px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-unlock-power.active {
+    background-position: -342px -107px;
+}
+
+.icon-security {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -429px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-security.active {
+    background-position: -432px -107px;
+}
+
+.icon-experience {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -515px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-experience.active {
+    background-position: -520px -107px;
+}
+
+.icon-complete {
+    line-height: 4rem;
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -601px -44px;
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+    border-radius: 50%;
+    transition: background-position 1s;
+}
+
+.icon-complete.complete {
+    background-position: -600px -106px;
+}
+.header-tab {
+    display: flex;
+    align-items: center;
+}
+
+.icon-house {
+    content: '';
+    width: 18px;
+    height: 21px;
+    background: url(assets/cim-sprite.svg) no-repeat;
+    display: inline-block;
+    margin-right: 8px;
+    background-position: 0 0;
+}
+
+.icon-house:hover {
+    background-position: -16px 1px;
+}
+
+body.cui .panel.panel--secondary {
+    background-color: #005176;
+}
+
+.icon-intel {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -41px -2px;
+    width: 30px;
+    display: inline-block;
+    height: 28px;
+}
+
+.icon-dollar {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -55px -173px;
+    width: 100%;
+    display: inline-block;
+    height: inherit;
+}
+
+body[data-theme="light"] .icon-dollar {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -115px -173px;
+    width: 100%;
+    display: inline-block;
+    height: inherit;
+}
+
+body[data-theme="light"] .icon-dollar:hover {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -85px -173px;
+    width: 100%;
+    display: inline-block;
+    height: inherit;
+}
+
+.icon-dollar:hover , body.cui .form-group .form-group__text input:hover~button .icon-dollar {
+    background: url(assets/cim-sprite.svg) no-repeat;
+    background-position: -85px -173px;
+    width: 100%;
+    display: inline-block;
+    height: inherit;
+}
+
+
+#dollar {
+    font-size: 15px;
+}
+
+
+/* ----------------------------------Form Animations--------------------------------------------- */
+
+body.cui .all-questionare .panel{
+    animation: fadeinout 1s linear forwards;
+    padding: var(--cui-spacing-triqtr);
+}
+
+@-webkit-keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* ----------------------------------Range input type--------------------------------------------- */
+
+.form-group__range {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group__range label {
+    margin-bottom: 16px;
+}
+
+
+/* ---------------------------------panel css---------------------------------------------- */
+
+body.cui .btn.btn--link{
+    color : #0d274d;
+}
+
+body.cui .btn.btn--link:hover{
+color : #038bae;
+}
+
+/* ---------------------------------theme css---------------------------------------------- */
+body.cui a:not(.btn).theme-item{
+    text-decoration: none;
+}
+
+body.cui a:not(.btn).theme--light{
+    color : var(--cui-color-gray-800);
+}
+
+body.cui a:not(.btn).theme--dark{
+    color: var(--cui-color-white);
+}
+body.cui a:not(.btn):hover{
+    text-decoration: none;
+}
+
+
+body.cui .panel.disable-form{
+    background-color: grey;
+}
+
+
+/** custom input search **/
+
+body.cui .form-group .form-group__text .input{
+    padding : unset;
+    line-height: 1.2rem;
+}
+
+
+/** Pop - Up CSS**/
+
+body.cui .form-group .pop-up .search-box{
+    font-weight: var(--cui-form-value-font-weight);
+    color: var(--cui-form-value-color);
+    -webkit-box-flex: 1;
+    flex: 1;
+    flex-shrink: 0;
+    -webkit-box-ordinal-group: 4;
+    background: var(--cui-form-background);
+    /* border: var(--cui-border); */
+    border-radius: var(--cui-border-radius);
+    box-shadow: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/**RANGE CSS**/
+
+
+.range-value{
+    position: absolute;
+    top: 24%;
+}
+.min-max span{
+    font-size: 12px;
+}
+.range-value span{
+    /* width: 30px;
+    height: 24px;
+    line-height: 24px;
+    
+    background: #03a9f4;
+    color: #fff; */
+    text-align: center;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 6px;
+}
+/* .range-value span:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #03a9f4;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+} */
+
+/**RANGE CSS END**/
+
+body.cui .btn-group app-datepicker:first-child>.btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+body.cui .btn-group app-datepicker:last-child>.btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+body.cui .btn-group app-datepicker:not(:first-child):not(:last-child) label.btn{
+    border-radius : 0;
+} 
+
+body.cui .btn-group app-datepicker label{
+    display: flex;
+    align-items: center;
+}
+
+body.cui .pop-up__2 .smart-search .text-search{
+    background: var(--cui-background-color);
+}
+
+/* .pop-up__2 .smart-search~.pop-up{
+    top : 6px;
+} */
+
+.active{
+    background-color: lightgrey;
+}
+
+/* ICONS */
+
+.icon-calendar{
+    margin-left : 8px;
+}

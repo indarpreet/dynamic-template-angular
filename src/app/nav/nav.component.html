@@ -1,0 +1,50 @@
+<nav class="header" id="styleguideheader" role="navigation">
+    <div class="container-fluid">
+        <div class="header-panels">
+            <div class="header-panel hidden-md-down">
+                <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                    <span class="icon-cisco"></span>
+                </a>
+                <span class="icon-intel"></span>
+                <h1 class="header__title">
+                    <span>CIM</span>
+                </h1>
+            </div>
+            <div class="header-panel header-panel--center base-margin-left base-margin-right hidden-lg-up">
+                <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                    <span class="icon-cisco"></span>
+                </a>
+            </div>
+
+            <div class="form-group input--icon global-search">
+                <div class="form-group__text">
+                  <input [ngClass]="{'pop-up__border' : matchedResults && matchedResults.length>0}" placeholder="search" [(ngModel)]="smartSearchText" name="global-search"
+                    id="global-search" type="search" (ngModelChange)="smartSearch($event)">
+                  
+                  <button type="button" class="link">
+                    <span class="icon-search"></span>
+                  </button>
+                </div>
+                <!-- <div class="circle-around" *ngIf="matchedResults && matchedResults.length>0"></div> -->
+                <div class="suggestions" *ngIf="matchedResults && matchedResults.length>0">
+                    <ul>
+                        <li (click)="searchItemClicked(item)" *ngFor="let item of matchedResults ; let i = index;" class="pdLeftSuggestionBox">
+                          <span  >
+                              {{item.customerName}}
+                          </span>
+                        </li>
+                    </ul>
+                  
+                  </div>
+                <!-- <app-smart-search [type]="form.searchType" [form]="form" *ngIf="form.formDataType == 'search'"></app-smart-search> -->
+              </div>
+
+              
+
+            <div class="header-panel header-panel--right hidden-md-down">
+                <a  (click)="themeToggleFn()" [ngClass]="{'theme--light' : !themeToggle, 'theme--dark': themeToggle }" class="theme-item">
+                {{themeToggle? "Light On" : "Light Off"}}</a>
+            </div>
+        </div>
+    </div>
+</nav>

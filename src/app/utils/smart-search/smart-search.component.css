@@ -1,0 +1,56 @@
+ul .pdLeftSuggestionBox{
+    padding-left: 5px;
+    text-align: left;
+    
+}
+.pdLeftSuggestionBox input{
+    position: relative;
+    top: 2px;
+}  
+
+.searchInput.searchSKU {
+   
+    width: 100%;
+    /* margin: 10px 0;
+    padding-left: 10px;
+    padding-right: 20px; */
+}
+
+.pdLeftSuggestionBox a{
+    color: #39393b;
+}
+.suggestions{
+    width: 100%;
+    top : 40px;
+    position: absolute;
+    background: #fff;
+    z-index: 999;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    min-height: 200px;
+    overflow-y: scroll;
+}
+.searchInput span.searchIcon{
+    top: 7px;
+
+}
+
+.close-icon {
+    display: inline-block;
+    background-image: url('/assets/images/Sprite-RulesPage.png');
+    background-repeat: no-repeat;
+    background-position: -19px -71px;
+    width: 14px;
+    height: 21px;
+    margin-left: 2px;
+    padding: 0 4px;
+    opacity: 0.6;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}
+
+.close-icon:hover {
+    opacity: 1;
+}

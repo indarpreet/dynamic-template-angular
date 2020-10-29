@@ -1,0 +1,189 @@
+<div class="panel base-margin-bottom">
+  <form class="flex flex-wrap">
+    <!-- BUTTON GRP 3 SINGLE SELECT-->
+    <div *ngFor="let form of formObject" class="{{form.formCol}}">
+      <!-- ------------------------Button group 2 Single----------------------------------------------------      -->
+      <ng-container [ngSwitch]="form.formType">
+        <div *ngSwitchCase="'btnGroup2'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <label>{{form.formLabel}}</label>
+            <div class="btn-group btn-group-toggle radio-pd-2 btn-group-2" data-toggle="buttons">
+              <label class="btn btn--ghost"
+                [ngClass]="{'approved' : form.data == form.formItemLabel[0]}">
+                <input type="radio" value="{{form.formItemLabel[0]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[0]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[0]}}
+              </label>
+              <label class="btn btn--ghost" [ngClass]="{'denied' : form.data == form.formItemLabel[1]}">
+                <input type="radio" value="{{form.formItemLabel[1]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[1]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[1]}}
+
+              </label>
+
+            </div>
+          </div>
+        </div>
+        <!-- ------------------------Button group 3 Single----------------------------------------------------      -->
+        <div *ngSwitchCase="'btnGroup3'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <label>{{form.formLabel}}</label>
+            <div class="btn-group btn-group-toggle radio-pd-2 btn-group-3" data-toggle="buttons">
+              <label class="btn btn--ghost" [ngClass]="{'denied' : form.data == form.formItemLabel[0]}">
+                <input type="radio" value="{{form.formItemLabel[0]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[0]}}"
+                  [(ngModel)]="form.data">
+                 <div class="form-item__label">{{form.formItemLabel[0]}}</div>
+                  <span class="tooltip">{{form.formItemLabel[0]}}</span>
+              </label>
+              
+              <label *ngIf="form.formItemLabel[1] != 'Targeted'" class="btn btn--ghost" [ngClass]="{'warning' : form.data == form.formItemLabel[1]}">
+                <input type="radio" value="{{form.formItemLabel[1]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[1]}}"
+                  [(ngModel)]="form.data">
+                
+                <div class="form-item__label">{{form.formItemLabel[1]}}</div>
+                  <span class="tooltip">{{form.formItemLabel[1]}}</span>
+              </label>
+              <app-datepicker  *ngIf="form.formItemLabel[1] == 'Targeted'" [form]="form" [label]="form.formItemLabel[1]" ></app-datepicker>
+              <label class="btn btn--ghost"
+                [ngClass]="{'approved' : form.data == form.formItemLabel[2]}">
+                <input type="radio" value="{{form.formItemLabel[2]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[2]}}"
+                  [(ngModel)]="form.data">
+                  <div class="form-item__label">{{form.formItemLabel[2]}}</div>
+                  <span class="tooltip">{{form.formItemLabel[2]}}</span>
+              </label>
+              
+            </div>
+          </div>
+        </div>
+        <!-- ------------------------Button group 4 Single----------------------------------------------------      -->
+
+        <div *ngSwitchCase="'btnGroup4'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <label>{{form.formLabel}}</label>
+            <div class="btn-group btn-group-toggle radio-pd-2 btn-group-4" data-toggle="buttons">
+              <label class="btn btn--ghost"
+                [ngClass]="{'denied' : form.data == form.formItemLabel[0]}">
+                <input type="radio" value="{{form.formItemLabel[0]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[0]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[0]}}
+              </label>
+              <label class="btn btn--ghost" [ngClass]="{'warning' : form.data == form.formItemLabel[1]}">
+                <input type="radio" value="{{form.formItemLabel[1]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[1]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[1]}}
+
+              </label>
+              <label class="btn btn--ghost" [ngClass]="{'warning' : form.data == form.formItemLabel[2]}">
+                <input type="radio" value="{{form.formItemLabel[2]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[2]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[2]}}
+              </label>
+              <label class="btn btn--ghost" [ngClass]="{'approved' : form.data == form.formItemLabel[3]}">
+                <input type="radio" value="{{form.formItemLabel[3]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[3]}}"
+                  [(ngModel)]="form.data">
+                {{form.formItemLabel[3]}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- ------------------------Button group 3 Multiple----------------------------------------------------      -->
+
+        <div *ngSwitchCase="'btnGroup3Multiple'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <label>{{form.formLabel}}<small class="offset-1">(Select Multiple)</small></label>
+            <div class="btn-group btn-group-toggle radio-pd-2 btn-group-3" data-toggle="buttons">
+              <label *ngFor="let itemLabel of form.formItemLabel ; let i = index" class="btn btn--ghost" 
+              [ngClass]="{'denied' : form.data[itemLabel] && i==0 , 
+              'warning' : form.data[itemLabel] && i > 0 && i < form.formItemLabel.length -1, 
+              'approved' : form.data[itemLabel] && i == form.formItemLabel.length -1 }">
+                <input type="checkbox" value="{{itemLabel}}"
+                  name="{{itemLabel}}" id="{{itemLabel}}"
+                  [(ngModel)]="form.data[itemLabel]">
+               
+                <div class="form-item__label"> {{itemLabel}}</div>
+                  <span class="tooltip"> {{itemLabel}}</span>
+              </label>
+              <!-- <label class="btn btn--ghost" [ngClass]="{'warning' : form.data[form.formItemLabel[1]]}">
+                <input type="checkbox" value="{{form.formItemLabel[1]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[1]}}"
+                  [(ngModel)]="form.data[form.formItemLabel[1]]">
+                {{form.formItemLabel[1]}}
+
+              </label>
+              <label class="btn btn--ghost"
+                [ngClass]="{'approved' : form.data[form.formItemLabel[2]]}">
+                <input type="checkbox" value="{{form.formItemLabel[2]}}"
+                  name="{{form.formItemName}}" id="{{form.formItemLabel[2]}}"
+                  [(ngModel)]="form.data[form.formItemLabel[2]]">
+                {{form.formItemLabel[2]}}
+              </label> -->
+            </div>
+          </div>
+        </div>
+        <!-- ------------------------text/num----------------------------------------------------      -->
+
+        <div *ngSwitchCase="'text/num'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <input [(ngModel)]="form.data" name="{{form.formItemName}}"
+              id="{{form.formItemName}}" type="{{form.formDataType}}">
+            <label for="input-type-number">{{form.formLabel}}</label>
+          </div>
+        </div>
+
+        <!-- --------------------------search with icon/number with dollar icon--------------------------------------------------      -->
+
+        <div *ngSwitchCase="'search'" class="pos-rel form-group input--icon base-margin-bottom">
+          <div *ngIf="form.formDataType == 'number'" class="form-group__text">
+            <input [(ngModel)]="form.data" name="{{form.formItemName}}"
+              id="{{form.formItemName}}" type="{{form.formDataType}}">
+            <label for="{{form.formItemName}}">{{form.formLabel}}</label>
+            <button type="button" class="link">
+              <span class="icon-{{form.icon? form.icon : 'search'}}"></span>
+            </button>
+          </div>
+          <app-smart-search [dropDownList]="form.dropdownValues?.dropDownList" [type]="form.searchType" [formType]="'data'" [form]="form" *ngIf="form.searchType == 'multiple'"></app-smart-search>
+          <app-smart-search-custom [type]="form.searchType" [form]="form" *ngIf="form.searchType == 'custom'"></app-smart-search-custom>
+        </div>
+
+        <!-- --------------------------range--------------------------------------------------      -->
+
+        <div *ngSwitchCase="'range'" class="relative form-group base-margin-bottom">
+          <div class="form-group__range">
+            <label for="{{form.formItemName}}">{{form.formLabel}}</label>
+           
+              <div class="range-value" [ngStyle]="{'left' : form.sliderData}" id="rangeV">
+                <span>{{form.data}}</span>
+              </div>
+              <input name="range" min="{{min}}" max="{{max}}" [(ngModel)]="form.data" (ngModelChange)="setSlider(form)" id="{{form.formItemName}}" type="range">
+           
+             <div class="min-max flex justify-content-between qtr-margin-top">
+              <span>{{min}}</span>
+              <span>{{max}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------------calender--------------------------------------------------      -->
+        <div *ngSwitchCase="'calender'" class="form-group base-margin-bottom">
+          <div class="form-group__text">
+            <label>{{form.formLabel}}</label>
+            <div class="btn-group btn-group-toggle btn-group-2" data-toggle="buttons">
+              <app-datepicker [form]="form" [label]="form.formItemLabel[0]"></app-datepicker>
+              <app-datepicker [form]="form" [label]="form.formItemLabel[1]"></app-datepicker>
+            </div>
+          </div>
+        </div>
+
+
+      </ng-container>
+    </div>
+  </form>
+</div>

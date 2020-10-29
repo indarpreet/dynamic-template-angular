@@ -1,0 +1,7 @@
+<div class="message-panel">
+    <ng-container [ngSwitch]="message.type">
+        <div class="alert--success" *ngSwitchCase="'success'">{{message.msg}}</div>
+        <div class="alert--danger"  *ngSwitchCase="'error'">{{message.msg}}</div>
+        <div class="alert--warning" *ngSwitchCase="'warning'">{{message.msg}}</div>
+    </ng-container>
+</div>

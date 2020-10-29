@@ -1,0 +1,42 @@
+<div (clickOutside)="onClickedOutside($event)">
+<div  class="smart-search form-group__text">
+  <div (click)="focusFunction()" class="input text-search" id="text-search">
+    <div *ngIf="form[formType].length > 0" class="chip-container">
+      <li (click)="$event.stopPropagation();" class="chips" *ngFor="let selected of form[formType]; let i =index;">
+        <span class=" qtr-margin-right">{{selected}}</span>
+        <span id="{{i}}" class="icon-close" (click)="deleteChip(i , selected)">
+
+        </span>
+      </li>
+    </div>
+  </div>
+  <label for="text-search">{{form.formLabel}}</label>
+  <button (click)="focusFunction()" type="button" class="link">
+    <span class="icon-search"></span>
+  </button>
+</div>
+
+
+<div  *ngIf="smartSearch" class="pop-up">
+  <input #search class="search-box" type="search" placeholder="Search here.." [(ngModel)]="searchText"
+    (ngModelChange)="searching(searchText)">
+
+  <ul *ngIf="filterDropDown.length> 0" class="popup-list-container qtr-margin-bottom">
+    <li class="flex align-items-center popup-list" *ngFor="let item of filterDropDown; let i= index">
+      <input id="cb" type="checkbox" [(ngModel)]="item.selected" (ngModelChange)="multiSelect(item)">
+      <label>{{item.text}}</label>
+    </li>
+</ul>
+
+  <!-- <app-smart-search-custom [form]="form" [dropDownElements]="items" (customSelect)="customSelect();"
+    *ngIf="type == 'custom' && items && items.length > 0">
+  </app-smart-search-custom> -->
+
+  
+
+
+
+
+</div>
+
+</div>

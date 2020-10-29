@@ -1,0 +1,26 @@
+	
+					<div class="form-group__text searchInput searchSKU">
+              <input type="text" id="textInput" [formControl]="textToSearch">
+              <label  placement="top" [ngbTooltip]="labelToolTip" for="textInput">{{holder}}
+                  <div *ngIf="required" class="required-block d-inlineBlock">
+                      <span class="icon-asterisk"></span>
+                  </div>
+              </label>
+              <span *ngIf="textToSearch.value == undefined" class="searchIcon"></span>
+              <span class="close-icon" *ngIf="textToSearch.value && textToSearch.value.length != 0" (click)="resetSearch()"> </span>
+            </div>
+            <div *ngIf="isLoading" class="progressBar"></div>
+            <div class="suggestions" *ngIf="filteredList && filteredList.length>0">
+              <ul>
+                  <li *ngFor="let item of filteredList ; let i = index;" class="pdLeftSuggestionBox">
+            
+                    <a (click)="searchItemClicked(item)">
+                        <ng-container *ngTemplateOutlet="smartSearchTemplate; context: { $implicit: item }">
+                          </ng-container>
+
+                        </a>
+            
+                  </li>
+              </ul>
+            
+            </div>

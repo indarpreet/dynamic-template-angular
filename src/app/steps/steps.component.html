@@ -1,0 +1,55 @@
+<div class="steps steps--large">
+    <div class="step" *ngFor="let stepObj of questionare ; let i = index;" (click)="step = stepObj.id ; stepId= i ; calculatePer();">
+        <div class="step__icon">
+            <span class="icon-{{stepObj.class}}" [ngClass]="{'active' : stepObj.id == step && step != 'complete' , 'complete' : step == 'complete' && stepObj[stepObj.id][0].data == 100}">
+                <span class="per-complete" *ngIf="stepObj.id == 'complete'">{{stepObj[stepObj.id][0].data}}%</span>
+            </span>
+        </div>
+        <div class="step__label">{{stepObj.name}}</div>
+    </div>
+</div>
+
+<div *ngIf="step != 'complete'" class="panel panel--light">
+    <div class="flex flex-between align-items-center">
+        <div>Please complete the questionnaire to better approach the customer</div>
+        <div>
+            <button (click)="reset()" class=" btn btn--link">Reset</button>
+            <button (click)="saveAndContinue()"class="btn">Save & Continue</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="step == 'complete'" class="panel panel--light">
+    <div class="flex flex-between align-items-center">
+        <div>Thanks for filling in the information, you are being redirected</div>
+    </div>
+</div>
+
+<div class="all-questionare">
+    <!-- <ng-container [ngSwitch]="step">
+       
+
+        <app-account-info *ngSwitchCase="questionare[0].id"></app-account-info>
+
+        <app-customer-intimacy *ngSwitchCase="questionare[1].id"></app-customer-intimacy>
+
+        <app-reinvent-network *ngSwitchCase="questionare[2].id"></app-reinvent-network>
+
+        <app-embrace-multicloud *ngSwitchCase="questionare[3].id"></app-embrace-multicloud>
+
+        <app-unlock-power *ngSwitchCase="questionare[4].id"></app-unlock-power>
+
+        <app-security *ngSwitchCase="questionare[5].id"></app-security>
+
+        <app-create-experience [createExperienceFormData]="questionare[6].experience" *ngSwitchCase="questionare[6].id"></app-create-experience>
+
+    </ng-container> -->
+ <ng-container *ngIf="questionare">
+    <ng-container *ngFor="let question of questionare">
+        <!-- <ng-container [ngSwitch]="step"> -->
+            <app-common-template [hidden]="question.id != step" [formObject]="question[question.id]"></app-common-template>
+        <!-- </ng-container> -->
+    </ng-container>
+</ng-container>
+    <!-- <app-account-info></app-account-info> -->
+</div>

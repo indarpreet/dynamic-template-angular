@@ -1,0 +1,113 @@
+<div (clickOutside)="onClickedOutside($event)">
+  <div class="smart-search form-group__text">
+    <div (click)="focusFunction()" class="input text-search" id="text-search">
+      <div *ngIf="form.data.length > 0" class="chip-container">
+        <li (click)="$event.stopPropagation();" class="chips" *ngFor="let selected of form.data; let i =index;">
+          <span class=" qtr-margin-right">{{display(selected)}}</span>
+          <span id="{{i}}" class="icon-close" (click)="deleteChip(i , selected)">
+
+          </span>
+        </li>
+      </div>
+    </div>
+    <label for="text-search">{{form.formLabel}}</label>
+    <button (click)="focusFunction()" type="button" class="link">
+      <span class="icon-search"></span>
+    </button>
+  </div>
+
+
+  <div *ngIf="smartSearch" class="pop-up">
+    <input #search class="search-box" type="search" placeholder="Search here.." [(ngModel)]="searchText"
+      (ngModelChange)="searching(searchText)">
+
+    <ul *ngIf="filterDropDown.length> 0" class="popup-list-container qtr-margin-bottom">
+
+      <li *ngFor="let item of filterDropDown; let i= index" class="popup-list flex align-items-center">
+        <div class="ck-container">
+          <div class="ck-section" [ngClass]="{'qtr-margin-bottom' : item.selected }">
+            <input id="cb" type="checkbox" [(ngModel)]="item.selected" (change)="multiSelect(item , i)">
+            <label>{{item.itemName}}</label>
+          </div>
+          <div *ngIf="item.itemName == 'Competition' && item.selected" class="ck-detail-section" (click)="$event.stopPropagation();">
+            <div  class="col-md-6 pos-rel input--icon form-group">
+              <label>Pick Competition</label>
+              <app-smart-search [dropDownList]="form.dropdownValues.competition" [type]="'multiple'"
+                [formType]="'competition'" [form]="item"></app-smart-search>
+            </div>
+
+            <div class="form-group-box form-group">
+              <input [(ngModel)]="item.targetedTakeOut" type="checkbox">
+              <label>Targeted take out</label>
+            </div>
+          </div>
+          <div *ngIf="item.itemName != 'Competition' && item.selected" class="ck-detail-section" (click)="$event.stopPropagation();">
+            <!-- <div class="relative form-group__range">
+                  <label for="base-share">Install Base Share %</label>
+      
+                  <div class="range-value" [ngStyle]="{'left' : sliderData}" id="rangeV">
+                    <span>{{customSmartSearchObj.installBaseShare + '%'}}</span>
+                  </div>
+                  <input name="range" min="{{min}}" max="{{max}}" [(ngModel)]="customSmartSearchObj.installBaseShare" (ngModelChange)="setSlider(customSmartSearchObj.installBaseShare)"
+                    id="base-share" type="range">
+      
+                  <div class="min-max flex justify-content-between qtr-margin-top">
+                    <span>{{min}}</span>
+                    <span>{{max}}</span>
+                  </div>
+                </div> -->
+            <!-- {{item.itemName}}: -->
+            <div class="form-group">
+            <label>Install Base Share %</label>
+            <div class="radio-btn-group">
+              <div class="form-group form-group--inline form-group--compressed">
+                <label class="radio">
+                  <input [value]="'0-25%'" [checked]="item.installBaseShare === '0-25%'" type="radio"
+                    (change)="onSelectionChange('0-25%' , item)" name="radio-compressed">
+                  <span class="radio__input"></span>
+                  <span class="radio__label">0-25%</span>
+                </label>
+              </div>
+              <div class="form-group form-group--inline form-group--compressed">
+                <label class="radio">
+                  <input [value]="'25-75%'" [checked]="item.installBaseShare === '25-75%'" type="radio"
+                    (change)="onSelectionChange('25-75%' , item)" name="radio-compressed">
+                  <span class="radio__input"></span>
+                  <span class="radio__label">25-75%</span>
+                </label>
+              </div>
+              <div class="form-group form-group--inline form-group--compressed">
+                <label class="radio">
+                  <input [value]="'75-100%'" [checked]="item.installBaseShare === '75-100%'" type="radio"
+                    (change)="onSelectionChange('75-100%' , item)" name="radio-compressed">
+                  <span class="radio__input"></span>
+                  <span class="radio__label">75-100%</span>
+                </label>
+              </div>
+            </div>
+          </div>
+            
+           
+              <div class="form-group-box form-group">
+                <input [(ngModel)]="item.losingShare" type="checkbox">
+                <label>Losing Share ?</label>
+              </div>
+
+              <div class="form-group-box form-group">
+                <input [(ngModel)]="item.refresh" type="checkbox">
+                <label>Refresh</label>
+              </div>
+              <!-- <button (click)="save()" class="btn btn--small" type="button">Select</button> -->
+           
+          </div>
+        </div>
+        <!-- <span *ngIf="item.selected" (click)="expand(i)" class="icon-popup-dialogue"></span> -->
+      </li>
+    </ul>
+
+
+
+
+  </div>
+
+</div>
